@@ -1,0 +1,34 @@
+// Array of nature buddies
+const buddies = [
+  { name: 'Peep', emoji: '🐥', description: 'A chirpy bird who cheers you on!' },
+  { name: 'Nibbles', emoji: '🐿️', description: 'A shy squirrel who loves numbers!' },
+  { name: 'Tilly', emoji: '🐢', description: 'Slow but wise — gives great tips!' },
+  { name: 'Flick', emoji: '🦊', description: 'Fast and clever — loves math races!' }
+];
+
+// Function to unlock a buddy
+function unlockBuddy(index) {
+  const buddy = buddies[index];
+  const buddyContainer = document.getElementById('buddyContainer');
+  const buddyCard = document.createElement('div');
+  buddyCard.classList.add('buddy-card');
+  buddyCard.innerHTML = `<div class="buddy-emoji">${buddy.emoji}</div><div class="buddy-name">${buddy.name}</div><p>${buddy.description}</p>`;
+  buddyContainer.appendChild(buddyCard);
+}
+
+// Math problem and unlock
+function askMathProblem() {
+  const answer = prompt("What is 5 + 3?");
+  if (parseInt(answer) === 8) {
+    alert('Correct! You unlocked a new buddy!');
+    unlockBuddy(0);  // Unlock Peep
+  } else {
+    alert('Try again!');
+  }
+}
+
+// Trigger math problem on page load
+window.onload = askMathProblem;
+<script src="script.js"></script>  <!-- if saved in a separate file -->
+<div id="buddyContainer"></div>
+
